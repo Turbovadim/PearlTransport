@@ -1,0 +1,8 @@
+version: 1.0-SNAPSHOT
+name: PearlTransport
+main: ru.turbovadim.pearltransport.Plugin
+api-version: '1.13'
+authors: [TurboVadim]
+description: Plugin that changes behavior of ender pearls
+depend:
+  - "ProtocolLib"
