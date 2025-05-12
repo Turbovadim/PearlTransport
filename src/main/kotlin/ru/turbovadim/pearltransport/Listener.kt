@@ -33,22 +33,19 @@ class DismountPacketAdapter(plugin: Plugin) : PacketAdapter(plugin, ListenerPrio
     override fun onPacketReceiving(event: PacketEvent) {
         val player = event.player
         if (player.vehicle?.type == EntityType.ENDER_PEARL) {
-            // Check if the player is pressing the dismount key (sneak)
-            event.isCancelled = true // Cancel the dismount packet
+            event.isCancelled = true
         }
     }
 }
 
 class ThrowEnderPearl2(plugin: Plugin) : PacketAdapter(
     plugin,
-    ListenerPriority.HIGH, // Use a higher priority to ensure this runs before the packet is processed
+    ListenerPriority.HIGH,
     PacketType.Play.Client.USE_ITEM
 ) {
     override fun onPacketReceiving(event: PacketEvent) {
         val player = event.player
-        // Check if the player is riding an ender pearl
         if (player.vehicle?.type == EntityType.ENDER_PEARL) {
-            // Cancel the packet to prevent the player from throwing an ender pearl while riding one
             event.isCancelled = true
         }
     }
